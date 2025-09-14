@@ -1,0 +1,10 @@
+[profile.default]
+src = 'src'
+out = 'out'
+libs = ['lib']
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/"
+]
+fork_url = "http://127.0.0.1:8545"
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

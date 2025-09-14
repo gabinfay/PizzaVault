@@ -1,0 +1,72 @@
+@list.txt here is the summerfi docs
+@addresses.txt @erc4626.txt and here the relevant 4626 doc
+so please now get the withdraw to work so that a user can get tokens back
+how would the mechanics work here? i think we need a chainlink price oracle probably for eth/usd
+so here it is:
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import "./IOracle.sol";
+
+contract ChainlinkOracle is IOracle {
+    mapping(address => address) public priceFeeds;
+
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not the owner");
+        _;
+    }
+
+    function setPriceFeed(address token, address feed) external onlyOwner {
+        priceFeeds[token] = feed;
+    }
+
+    function getPrice(address token) external view override returns (uint256 price) {
+        address feedAddress = priceFeeds[token];
+        require(feedAddress != address(0), "Price feed not found");
+
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(feedAddress);
+        (
+            ,
+            int256 latestPrice,
+            ,
+            ,
+            
+        ) = priceFeed.latestRoundData();
+
+        // Chainlink prices can have different decimals, we need to convert to 8
+        uint8 decimals = priceFeed.decimals();
+        if (decimals > 8) {
+            return uint256(latestPrice) / (10**(uint256(decimals) - 8));
+        } else {
+            return uint256(latestPrice) * (10**(8 - uint256(decimals)));
+        }
+    }
+}
+
+and ioracle
+//SPDX-License-Identifier: MIT
+pragma solidity >=0.8.0 <0.9.0;
+
+/**
+ * Oracle Interface for fetching token prices
+ * @author Avanguard Index
+ */
+interface IOracle {
+    /**
+     * @dev Get the current price of a token in USD with 8 decimals
+     * @param token The token address to get price for
+     * @return price The current price in USD (8 decimals)
+     */
+    function getPrice(address token) external view returns (uint256 price);
+}
+
+and
+eth usd address is this on base for chainlink
+0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
