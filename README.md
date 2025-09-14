@@ -1,9 +1,9 @@
-# Yielderita
+# YIELDERITA
 <img width="3000" height="1000" alt="banner" src="https://github.com/user-attachments/assets/161d2898-2de5-4923-a6b4-3bca20f80862" />
 
 A **pizza-aware DeFi vault** that routes user deposits into [Lazy Summer Protocol](https://summer.fi) strategies, flipping between **ETH Higher Risk** and **USDC Lower Risk** vaults based on the [Pentagon Pizza Index](https://pizzint.watch) (PizzINT) signals.
 
-[Demo App]() | [Slide Deck]() | [Taikai]()
+[Demo App]() | [Slide Deck](https://github.com/gabinfay/PizzaVault/blob/main/SLIDEDECK.md) | [Taikai]()
 
 ---
 
