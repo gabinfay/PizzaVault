@@ -15,6 +15,9 @@ A **pizza-aware DeFi vault** that routes user deposits into [Lazy Summer Protoco
 - Demo-ready using PizzINT watch feed for signals.
 - Signals are utilized for automatic strategy rebalancing.
 
+![Yielderitaanim-ezgif com-resize](https://github.com/user-attachments/assets/8c02296b-4553-45c1-af3b-bb8da1fcb48b)
+
+
 ---
 
 ## Architecture
@@ -54,7 +57,7 @@ A **pizza-aware DeFi vault** that routes user deposits into [Lazy Summer Protoco
 
 | Contract | Address | Network |
 |----------|---------|---------|
-| `PizzaVault.sol` | [0xXXX]() | Sepolia |
+| `PizzaVault.sol` | [0xXXX]() | Base |
 
 ---
 
