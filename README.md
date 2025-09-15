@@ -3,7 +3,7 @@
 
 A **pizza-aware DeFi vault** that routes user deposits into [Lazy Summer Protocol](https://summer.fi) strategies, flipping between **ETH Higher Risk** and **USDC Lower Risk** vaults based on the [Pentagon Pizza Index](https://pizzint.watch) (PizzINT) signals.
 
-[Demo App]() | [Slide Deck](https://github.com/gabinfay/PizzaVault/blob/main/SLIDEDECK.md) | [Taikai]()
+[Demo App]() | [MockUp/UI-UX](https://github.com/gabinfay/PizzaVault/blob/main/UI-UX-MockUp.md) | [Slide Deck](https://github.com/gabinfay/PizzaVault/blob/main/SLIDEDECK.md) | [Taikai]()
 
 ---
 
