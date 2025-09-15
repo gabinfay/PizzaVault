@@ -23,13 +23,13 @@ A **pizza-aware DeFi vault** that routes user deposits into [Lazy Summer Protoco
 ## Architecture
 
 1. **PizzaVault Contract**
-   - Accepts deposits.
-   - Allocates funds to **Lazy Summer Protocol** vaults based on `pizzaSignal`.
+   - Accepts deposits/withdrawals.
+   - Allocates funds to **Lazy Summer Protocol** vaults (ETH-or-USDC) based on `pizzaSignal`.
    - Rebalances automatically when pizza index changes.
 
 2. **Signal Adapter**
    - Fetches pizza index level from [PizzINT](https://www.pizzint.watch/).
-   - Updates on-chain `pizzaSignal` variable via a simple oracle.
+   - Updates onchain `pizzaSignal` variable via a simple oracle.
 
 3. **Frontend Dashboard**
    - React/Next.js app.
